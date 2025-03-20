@@ -12,8 +12,8 @@ const Training = () => {
 
     if (edit)
       setSteps((prevState) =>
-        prevState.filter((o) => {
-          return o.id !== edit.data.id;
+        prevState.filter((item) => {
+          return item.id !== edit.data.id;
         })
       );
 
@@ -24,7 +24,6 @@ const Training = () => {
     } else if (idx !== -1 && edit.status) {
       copySteps[idx].date = form.date;
       copySteps[idx].distance = form.distance;
-
       setSteps(copySteps);
     } else {
       copySteps[idx].addDistance(step.distance);
@@ -35,14 +34,13 @@ const Training = () => {
 
   const handleEdit = (id) => {
     let idx = [...steps].findIndex((i) => i.id === id);
-
     setEdit({ status: true, data: steps[idx] });
     setForm({ date: steps[idx].date, distance: steps[idx].distance });
   };
 
   const handleRemove = (id) => {
     setEdit({ status: false, data: "" });
-    setSteps((prevState) => prevState.filter((o) => o.id !== id));
+    setSteps((prevState) => prevState.filter((item) => item.id !== id));
   };
 
   return (

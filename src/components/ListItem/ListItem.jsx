@@ -16,11 +16,11 @@ const ListItem = (props) => {
           <div className="list-item-btns-block">
             <button
               className="edit"
-              onClick={() => onRemove(step.id)}
+              onClick={() => onEdit(step.id)}
             ></button>
             <button
               className="remove"
-              onClick={() => onEdit(step.id)}
+              onClick={() => onRemove(step.id)}
             ></button>
           </div>
         </div>
